@@ -15,7 +15,7 @@ RUN python -m pipx run --no-cache poetry export -f requirements.txt --output req
 RUN python -m pipx run --no-cache nb-cli generate -f bot.py
 
 
-FROM python:3.10
+FROM python:3.10-slim
 
 WORKDIR /app
 
