@@ -24,7 +24,7 @@ ENV PYTHONPATH=/app
 
 COPY --from=requirements_stage /tmp/requirements.txt /tmp/bot.py /app/
 
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
