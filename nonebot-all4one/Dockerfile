@@ -22,6 +22,11 @@ WORKDIR /app
 ENV TZ Asia/Shanghai
 ENV PYTHONPATH=/app
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && apt-get purge -y --auto-remove \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY --from=requirements_stage /tmp/requirements.txt /tmp/bot.py /app/
 
 RUN pip install --no-cache-dir -r requirements.txt
