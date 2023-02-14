@@ -21,7 +21,7 @@ jobs:
         id: get-version
         shell: python
         run: |
-          import tomllib
+          import tomllib, os
           with open("nonebot-all4one/pyproject.toml", "rb") as f:
               data = tomllib.load(f)
           version = data["tool"]["poetry"]["version"]
