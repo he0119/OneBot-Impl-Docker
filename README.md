@@ -42,13 +42,14 @@ docker run --detach \
 
 ## [NoneBot-All4One](https://github.com/nonepkg/nonebot-plugin-all4one)
 
-将 NoneBot 变成 OneBot 实现。
+将 NoneBot 变成 OneBot 实现。当前支持 Telegram 和 QQ 频道。
 
 ```sh
 docker run --detach \
   --env OBIMPL_CONNECTIONS=[] \
   --env QQGUILD_IS_SANDBOX=false \
   --env QQGUILD_BOTS=[] \
+  --env TELEGRAM_BOTS=[] \
   --restart=always \
   --name=teydacore \
   ghcr.io/he0119/nonebot-all4one
