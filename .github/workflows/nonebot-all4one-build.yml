@@ -15,18 +15,17 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
-      - name: Get nonebot-all4one version
-        id: get-version
-        shell: python
+      - name: Fecth latest nonebot-all4one version
+        id: fetch-nonebot-all4one
         run: |
-          import tomllib, os
-          with open("nonebot-all4one/pyproject.toml", "rb") as f:
-              data = tomllib.load(f)
-          version = data["tool"]["poetry"]["version"]
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-            f.write(f"version={version}\n")
+          cd nonebot-all4one
+          python -m pip install --user pipx
+          python -m pipx run --no-cache poetry export -f requirements.txt --output requirements.txt --without-hashes
+          python -m pipx run --no-cache nb-cli generate -f bot.py
+          VERSION=$(grep -Po "nonebot-plugin-all4one==\K.+(?= ;)" requirements.txt)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Setup Docker
         uses: docker/setup-buildx-action@v2
@@ -45,7 +44,7 @@ jobs:
           images: ghcr.io/he0119/nonebot-all4one
           tags: |
             latest
-            ${{ steps.get-version.outputs.version }}
+            ${{ steps.fetch-nonebot-all4one.outputs.version }}
 
       - name: Build and Publish
         uses: docker/build-push-action@v3
