@@ -4,6 +4,8 @@
 
 ## [Walle-K](https://github.com/onebot-walle/walle-k)
 
+Kook 的实现。
+
 直接运行 Walle-K。
 
 ```sh
@@ -16,6 +18,8 @@ docker run --detach \
 
 ## [Walle-Q](https://github.com/onebot-walle/walle-q)
 
+QQ 的实现。
+
 直接运行 Walle-Q。
 
 ```sh
@@ -27,6 +31,8 @@ docker run --detach \
 ```
 
 ## [Teydacore](https://github.com/teyda/teydacore)
+
+Telegram 的实现。
 
 直接运行 Teydacore。
 
@@ -42,7 +48,9 @@ docker run --detach \
 
 ## [NoneBot-All4One](https://github.com/nonepkg/nonebot-plugin-all4one)
 
-将 NoneBot 变成 OneBot 实现。当前支持 Telegram, QQ 频道和 OneBot V11/V12。
+将 NoneBot 变成 OneBot 实现。当前支持 Telegram，QQ 频道和 OneBot V11/V12。
+
+直接运行 All4One。
 
 ```sh
 docker run --detach \
