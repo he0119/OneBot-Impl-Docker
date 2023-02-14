@@ -12,6 +12,22 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Get nonebot-all4one version
+        id: get-version
+        shell: python
+        run: |
+          import tomllib
+          with open("nonebot-all4one/pyproject.toml", "rb") as f:
+              data = tomllib.load(f)
+          version = data["tool"]["poetry"]["version"]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            f.write(f"version={version}\n")
+
       - name: Setup Docker
         uses: docker/setup-buildx-action@v2
 
@@ -29,6 +45,7 @@ jobs:
           images: ghcr.io/he0119/nonebot-all4one
           tags: |
             latest
+            ${{ steps.get-version.outputs.version }}
 
       - name: Build and Publish
         uses: docker/build-push-action@v3

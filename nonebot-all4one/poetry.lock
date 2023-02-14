@@ -375,9 +375,9 @@ telegram = ["nonebot-adapter-telegram (>=0.1.0b8)"]
 
 [package.source]
 type = "git"
-url = "https://github.com/he0119/nonebot-plugin-all4one.git"
-reference = "feat/qqguild"
-resolved_reference = "7d69b1fc46dab0baae763d1627e68f0142b5ee9d"
+url = "https://github.com/nonepkg/nonebot-plugin-all4one"
+reference = "master"
+resolved_reference = "5d16b7cb798acd311b246a00e94fab962c6227c2"
 
 [[package]]
 name = "nonebot2"
@@ -729,4 +729,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b9136987fcabfbe1daf9af382ea0f5a0761be7b4b121da480c774c25814da20a"
+content-hash = "f3cc360af1bbd179cb4c952f2a0a8a6cbefa89578d4c49d41ea3833fb61214a5"
