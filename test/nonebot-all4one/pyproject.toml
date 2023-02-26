@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 nonebot2 = { extras = ["fastapi", "httpx", "websockets"], version = "^2.0.0rc3" }
-nonebot-plugin-all4one = { git = "https://github.com/he0119/nonebot-plugin-all4one.git", branch = "master" }
+nonebot-plugin-all4one = { git = "https://github.com/nonepkg/nonebot-plugin-all4one.git", branch = "master" }
 nonebot-adapter-qqguild = { git = "https://github.com/nonebot/adapter-qqguild.git", branch = "master" }
 nonebot-adapter-telegram = "*"
 
