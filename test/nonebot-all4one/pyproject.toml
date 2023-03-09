@@ -7,10 +7,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-nonebot2 = { extras = ["fastapi", "httpx", "websockets"], version = "^2.0.0rc3" }
+nonebot2 = { extras = [
+    "fastapi",
+    "httpx",
+    "websockets",
+], version = "^2.0.0rc3" }
 nonebot-plugin-all4one = { git = "https://github.com/nonepkg/nonebot-plugin-all4one.git", branch = "master" }
 nonebot-adapter-qqguild = { git = "https://github.com/nonebot/adapter-qqguild.git", branch = "master" }
 nonebot-adapter-telegram = "*"
+nonebot-plugin-sentry = "*"
 
 [tool.nonebot]
 adapters = [
@@ -19,7 +24,7 @@ adapters = [
     { name = "OneBot V11", module_name = "nonebot.adapters.onebot.v11", project_link = "nonebot-adapter-onebot", desc = "OneBot V11 协议" },
     { name = "OneBot V12", module_name = "nonebot.adapters.onebot.v12", project_link = "nonebot-adapter-onebot", desc = "OneBot V12 协议" },
 ]
-plugins = ["nonebot_plugin_all4one"]
+plugins = ["nonebot_plugin_all4one", "nonebot_plugin_sentry"]
 plugin_dirs = []
 builtin_plugins = []
 
